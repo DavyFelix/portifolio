@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Davy de Souza</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="text-white overflow-x-hidden">
+
+  <!-- FUNDO ESPAÇO ANIMADO -->
+  <canvas id="space" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+
+
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <img src="assets/81392911.jpg" alt="Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-indigo-500">
+    <h1 class="text-4xl md:text-5xl font-bold">Davy de Souza</h1>
+    <p class="text-xl text-gray-300 mt-2">Desenvolvedor | Flutter • Web • Automações</p>
+    <a href="#projects" class="mt-6 px-6 py-3 bg-indigo-600 rounded-lg hover:bg-indigo-700 transition">Ver Projetos</a>
+  </section>
+
+  <!-- SOBRE MIM -->
+  <section class="container mx-auto px-6 py-16" data-aos="fade-up">
+    <h2 class="text-3xl font-bold text-center mb-8">Sobre mim</h2>
+
+    <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl p-8 shadow-lg">
+      <p class="text-gray-300 text-lg leading-relaxed">
+        Olá! Eu sou <span class="text-indigo-400 font-semibold">Davy de Souza</span>, apaixonado por tecnologia e programação.
+        Trabalho com desenvolvimento <strong>Web</strong> e <strong>Mobile</strong>, criando aplicações modernas,
+        funcionais e bem estruturadas.
+      </p>
+
+      <p class="text-gray-300 text-lg leading-relaxed mt-4">
+        Tenho experiência com <strong>Flutter</strong>, <strong>JavaScript</strong>, <strong>HTML</strong>,
+        <strong>CSS</strong>, <strong>SQL Server</strong> e automações utilizando <strong>Selenium</strong>.
+        Gosto de transformar ideias em soluções práticas e aprender novas tecnologias constantemente.
+      </p>
+
+      <p class="text-gray-300 text-lg leading-relaxed mt-4">
+        Atualmente formado em <strong>Sistemas de Informação</strong> e <strong>Pós graduado MIT em Desenvolvimento Mobile</strong> 
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">Flutter</span>
+        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">JavaScript</span>
+        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">HTML</span>
+        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">CSS</span>
+        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">SQL Server</span>
+        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">Selenium</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projects" class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">Projetos do GitHub</h2>
+
+    <div id="repo-list" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 text-gray-400">
+    © 2026 • Feito com ❤️ por Davy
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const user = "DavyFelix";
+    const repoList = document.getElementById("repo-list");
+
+    fetch(`https://api.github.com/users/${user}/repos?sort=updated`)
+      .then(res => res.json())
+      .then(repos => {
+        repos.forEach(repo => {
+          if (repo.fork) return;
+
+          const card = document.createElement("div");
+          card.setAttribute("data-aos", "fade-up");
+          card.className = "bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 transition transform";
+
+          card.innerHTML = `
+            <h3 class="text-2xl font-bold text-indigo-400">${repo.name}</h3>
+            <p class="text-gray-300 mt-2 min-h-[48px]">${repo.description ?? "Projeto sem descrição"}</p>
+
+            <div class="flex justify-between items-center mt-4 text-sm text-gray-400">
+              <span>🧠 ${repo.language ?? "N/A"}</span>
+              <span>⭐ ${repo.stargazers_count}</span>
+            </div>
+
+            <a href="${repo.html_url}" target="_blank" class="block mt-4 text-center bg-indigo-600 py-2 rounded-md hover:bg-indigo-700 transition">Ver no GitHub</a>
+          `;
+
+          repoList.appendChild(card);
+        });
+      })
+      .catch(err => {
+        repoList.innerHTML = '<p class="text-red-400">Erro ao carregar projetos.</p>';
+        console.error(err);
+      });
+  </script>
+
+  <script>
+    const canvas = document.getElementById('space');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const stars = Array.from({ length: 200 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5 + 0.5,
+      s: Math.random() * 0.5 + 0.2
+    }));
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0b1020';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = 'white';
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+        ctx.fill();
+        star.y += star.s;
+        if (star.y > canvas.height) star.y = 0;
+      });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>
