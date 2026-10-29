@@ -1,148 +1,270 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio | Davy de Souza</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Davy de Souza, desenvolvedor mobile</title>
+<meta name="description" content="Portfólio de Davy de Souza, desenvolvedor júnior com foco em apps mobile (Flutter e Kotlin), web e automações. Rio de Janeiro, RJ.">
+<meta name="theme-color" content="#07040D">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%2307040D'/%3E%3Ctext x='14' y='68' font-size='54' font-family='monospace' font-weight='700' fill='%239D6BFF'%3E%3E_%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;800&display=swap" rel="stylesheet">
+<script>if(!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("js")</script>
+<style>
+:root{--bg:#07040D;--win:#0F0A1C;--bar:#1A1030;--p:#9D6BFF;--p2:#C9B2FF;--deep:#3B1D8F;--tx:#E8E0FF;--dim:#8F83B0;--ln:#2A1F47;--m:"JetBrains Mono",ui-monospace,Consolas,monospace}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--m);background:var(--bg);color:var(--tx);line-height:1.65;font-size:1rem;padding:clamp(.5rem,2vw,1.5rem) clamp(.5rem,2vw,1.5rem) 2.5rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--p2);outline-offset:3px}
+.win{max-width:1180px;margin:0 auto;background:var(--win);border:1px solid var(--ln);border-radius:10px;box-shadow:16px 16px 0 var(--deep)}
+.tb{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--bar);border-bottom:1px solid var(--ln);border-radius:10px 10px 0 0;padding:.6rem 1rem;font-size:.85rem}
+.tb b{font-weight:500;color:var(--p2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb nav{display:flex;gap:1.2rem;align-items:center}
+.tb nav a{text-decoration:none;color:var(--dim)}
+.tb nav a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
+.ctl{letter-spacing:.7rem;color:var(--dim);margin-right:-.7rem}
+.in{padding:clamp(1.25rem,4vw,3rem)}
+.pr{color:var(--p)}
+.ln{color:var(--p2)}
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+/* Hero */
+.hero{min-height:78svh;display:flex;flex-direction:column;justify-content:center;gap:.4rem}
+.out{margin:.2rem 0 1.4rem}
+.name{font-weight:800;font-size:clamp(2.2rem,10.5vw,7.2rem);line-height:1;letter-spacing:-.06em;color:#fff;text-shadow:5px 5px 0 var(--deep)}
+.lead{max-width:44rem;color:var(--tx)}
+.ok::before{content:"";display:inline-block;width:.65rem;height:.65rem;border-radius:50%;background:var(--p);margin-right:.6rem;animation:ping 2.2s infinite}
+.cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1rem;transition:opacity .6s}
+.js .cta{opacity:0}.js.ready .cta{opacity:1}
+.btn{display:inline-block;padding:.8rem 1.4rem;font-weight:800;text-decoration:none;border:2px solid var(--p);border-radius:6px;transition:transform .15s,background .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--deep)}
+.btn.solid{background:var(--p);color:#07040D}
+.caret{display:inline-block;width:.6em;height:1.05em;background:var(--p2);vertical-align:text-bottom;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@keyframes ping{70%{box-shadow:0 0 0 .6rem transparent}0%{box-shadow:0 0 0 0 var(--p)}}
 
-  <!-- AOS Animations -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+/* Sections */
+.sec{padding-top:clamp(3rem,7vw,5.5rem);border-top:1px dashed var(--ln);margin-top:clamp(2rem,5vw,3.5rem)}
+h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;letter-spacing:-.05em;color:#fff;max-width:20ch;margin-top:.6rem}
+.sub{max-width:40rem;margin-top:1rem;color:var(--dim)}
+
+/* Projects */
+.work{display:grid;grid-template-columns:minmax(0,320px) 1fr;gap:clamp(2rem,6vw,4.5rem);margin-top:3rem;align-items:start}
+.phone{position:sticky;top:4.2rem;width:100%;max-width:300px;aspect-ratio:9/18.5;background:#000;border:2px solid var(--p);border-radius:42px;padding:10px;box-shadow:12px 12px 0 var(--deep)}
+.phone::before{content:"";position:absolute;top:17px;left:50%;transform:translateX(-50%);width:80px;height:20px;background:#000;border-radius:99px;z-index:2}
+.screen{height:100%;background:#fff;color:#14081F;border-radius:32px;overflow:hidden;padding:2.7rem 1rem 1rem;font-size:.78rem;line-height:1.35;display:flex;flex-direction:column;gap:.55rem;animation:swap .35s ease-out}
+@keyframes swap{from{opacity:0;transform:translateX(18px)}}
+.screen h4{font-size:1.2rem;line-height:1.1;letter-spacing:-.04em;font-weight:800}
+.row{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.6rem .7rem;border-radius:12px;background:#F1EBFF}
+.row small{display:block;color:#6B5C8F;font-size:.68rem}
+.br{height:6px;border-radius:9px;background:#DCCEFF;margin-top:.35rem;overflow:hidden}
+.br i{display:block;height:100%;background:#7C3AED;border-radius:9px}
+.tag{font-size:.66rem;font-weight:800;padding:.12rem .5rem;border-radius:99px;background:#7C3AED;color:#fff}
+.tag.p{background:#fff;color:#7C3AED;border:1px solid #7C3AED}
+.fab{margin-top:auto;background:#14081F;color:#fff;text-align:center;font-weight:800;padding:.75rem;border-radius:14px}
+.term{background:#07040D;color:var(--p2);font-size:.68rem;border-radius:14px;padding:.85rem;flex:1;display:flex;flex-direction:column;gap:.35rem}
+.term em{color:#fff;font-style:normal;font-weight:800}
+.dv{margin:.3rem auto;width:140px;aspect-ratio:1;border-radius:50%;border:8px solid #7C3AED;background:#120A24 linear-gradient(#2A1B4D 1px,transparent 1px),linear-gradient(90deg,#2A1B4D 1px,transparent 1px);background-size:14px 14px;display:grid;place-items:center;color:var(--p2);font-weight:800;text-align:center;font-size:.7rem;box-shadow:inset 0 0 22px #000}
+.field{border:1.5px solid #DCCEFF;border-radius:10px;padding:.65rem .8rem;color:#8A7BAE}
+.list{list-style:none;padding:0}
+.proj{padding:1.3rem 0 1.3rem 1.6rem;border-bottom:1px dashed var(--ln);position:relative}
+.proj::before{content:">";position:absolute;left:0;top:1.3rem;color:transparent;font-weight:800;font-size:1.3rem;line-height:1.2}
+.proj.on::before{color:var(--p)}
+.proj h3{font-size:1.45rem;line-height:1.2;letter-spacing:-.04em;font-weight:800}
+.proj h3 button{all:unset;cursor:pointer}
+.proj h3 button:focus-visible{outline:3px solid var(--p2);outline-offset:4px}
+.proj:not(.on) h3 button{color:var(--dim)}
+.proj h3 button:hover{color:#fff}
+.proj p{margin-top:.4rem;max-width:34rem;color:var(--tx)}
+.stack{color:var(--p);font-size:.85rem}
+.proj a{display:inline-block;margin-top:.6rem;color:var(--p2);text-underline-offset:5px}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem);margin-top:2.5rem}
+.skills h3{color:var(--p);font-size:1.15rem;margin-bottom:.6rem;font-weight:800}
+.skills ul{padding:0;list-style:none}
+.skills li{padding:.45rem 0;border-top:1px dashed var(--ln)}
+.skills li::before{content:"> ";color:var(--p)}
+
+/* Contact */
+.mail{display:block;font-weight:800;font-size:clamp(1.15rem,4.6vw,3.2rem);letter-spacing:-.06em;line-height:1.1;margin-top:1.6rem;word-break:break-word;color:var(--p);text-decoration:none}
+.mail:hover{color:#fff;text-decoration:underline;text-decoration-thickness:5px;text-underline-offset:8px}
+.links{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.links a{border:2px solid var(--p);border-radius:6px;padding:.6rem 1.2rem;font-weight:800;text-decoration:none;transition:background .15s,color .15s}
+.links a:hover{background:var(--p);color:#07040D}
+.end{margin-top:clamp(3rem,7vw,5rem);color:var(--dim);font-size:.9rem}
+
+@media (max-width:860px){
+  .work{grid-template-columns:1fr}
+  .phone{position:relative;top:0;margin:0 auto 1rem}
+  .skills{grid-template-columns:1fr}
+  .tb nav{gap:.8rem}.ctl{display:none}
+}
+@media (max-width:480px){.tb b{display:none}.tb{justify-content:center}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
 </head>
-<body class="text-white overflow-x-hidden">
+<body>
+<div class="win">
+  <div class="tb">
+    <b>C:\Users\davy\portfolio\cmd.exe</b>
+    <nav aria-label="Principal"><a href="#projetos">projetos</a><a href="#stack">tecnologias</a><a href="#contato">contato</a><span class="ctl" aria-hidden="true">–□×</span></nav>
+  </div>
 
-  <!-- FUNDO ESPAÇO ANIMADO -->
-  <canvas id="space" class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
-
-
-  <!-- HERO -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center px-4">
-    <img src="assets/81392911.jpg" alt="Avatar" class="w-32 h-32 rounded-full mb-4 border-4 border-indigo-500">
-    <h1 class="text-4xl md:text-5xl font-bold">Davy de Souza</h1>
-    <p class="text-xl text-gray-300 mt-2">Desenvolvedor | Flutter • Web • Automações</p>
-    <a href="#projects" class="mt-6 px-6 py-3 bg-indigo-600 rounded-lg hover:bg-indigo-700 transition">Ver Projetos</a>
-  </section>
-
-  <!-- SOBRE MIM -->
-  <section class="container mx-auto px-6 py-16" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-center mb-8">Sobre mim</h2>
-
-    <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl p-8 shadow-lg">
-      <p class="text-gray-300 text-lg leading-relaxed">
-        Olá! Eu sou <span class="text-indigo-400 font-semibold">Davy de Souza</span>, apaixonado por tecnologia e programação.
-        Trabalho com desenvolvimento <strong>Web</strong> e <strong>Mobile</strong>, criando aplicações modernas,
-        funcionais e bem estruturadas.
-      </p>
-
-      <p class="text-gray-300 text-lg leading-relaxed mt-4">
-        Tenho experiência com <strong>Flutter</strong>, <strong>JavaScript</strong>, <strong>HTML</strong>,
-        <strong>CSS</strong>, <strong>SQL Server</strong> e automações utilizando <strong>Selenium</strong>.
-        Gosto de transformar ideias em soluções práticas e aprender novas tecnologias constantemente.
-      </p>
-
-      <p class="text-gray-300 text-lg leading-relaxed mt-4">
-        Atualmente formado em <strong>Sistemas de Informação</strong> e <strong>Pós graduado MIT em Desenvolvimento Mobile</strong> 
-      </p>
-
-      <div class="mt-6 flex flex-wrap gap-3">
-        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">Flutter</span>
-        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">React Native</span>
-        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">JavaScript</span>
-        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">HTML</span>
-        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">CSS</span>
-        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">SQL Server</span>
-        <span class="px-4 py-2 bg-indigo-600 rounded-full text-sm">Selenium</span>
+  <div class="in">
+    <header class="hero">
+      <div class="ln"><span class="pr">C:\Users\davy&gt;</span> <span data-type="70">whoami</span></div>
+      <div class="out"><h1 class="name" data-type="45">Davy de Souza</h1></div>
+      <div class="ln"><span class="pr">C:\Users\davy&gt;</span> <span data-type="70">type sobre.txt</span></div>
+      <div class="out"><p class="lead" data-type="12">Desenvolvedor júnior de Rio de Janeiro. Faço apps mobile com Flutter e Kotlin, e automações em Python que tiram trabalho repetitivo do caminho.</p></div>
+      <div class="ln"><span class="pr">C:\Users\davy&gt;</span> <span data-type="70">status</span></div>
+      <div class="out"><p class="ok" data-type="25">Aberto a oportunidades</p></div>
+      <div class="cta">
+        <a class="btn solid" href="#projetos">Ver meus projetos</a>
+        <a class="btn" href="mailto:davydsfp@gmail.com">Enviar e-mail</a>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- PROJETOS -->
-  <section id="projects" class="container mx-auto px-6 py-16">
-    <h2 class="text-3xl font-bold text-center mb-12">Projetos do GitHub</h2>
+    <main>
+    <section class="sec" id="projetos">
+      <div class="ln"><span class="pr">C:\Users\davy\projetos&gt;</span> dir</div>
+      <h2>Projetos que você pode abrir e testar</h2>
+      <p class="sub">Escolha um projeto na lista e a tela do celular muda. Cada um tem o código aberto no GitHub.</p>
+      <div class="work">
+        <div class="phone" aria-label="Prévia ilustrativa do projeto selecionado"><div class="screen" id="screen"></div></div>
+        <ul class="list" id="list"></ul>
+      </div>
+    </section>
 
-    <div id="repo-list" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"></div>
-  </section>
+    <section class="sec" id="stack">
+      <div class="ln"><span class="pr">C:\Users\davy&gt;</span> tecnologias --listar</div>
+      <h2>Com o que eu trabalho</h2>
+      <p class="sub">Começo pelo mobile, mas já passei por front-end, back-end e banco de dados nos meus projetos.</p>
+      <div class="skills">
+        <div><h3>Mobile</h3><ul><li>Flutter</li><li>Kotlin</li><li>Android</li></ul></div>
+        <div><h3>Front-end</h3><ul><li>JavaScript e TypeScript</li><li>React</li><li>HTML e CSS</li></ul></div>
+        <div><h3>Back-end e dados</h3><ul><li>C#</li><li>Python</li><li>SQL Server</li><li>Firebase</li></ul></div>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
-  <footer class="text-center py-6 text-gray-400">
-    © 2026 • Feito com ❤️ por Davy
-  </footer>
+    <section class="sec" id="contato">
+      <div class="ln"><span class="pr">C:\Users\davy&gt;</span> start mailto:</div>
+      <h2>Vamos conversar?</h2>
+      <p class="sub">Estou buscando minha próxima oportunidade para crescer em um time de desenvolvimento. A forma mais rápida de me achar é por e-mail.</p>
+      <a class="mail" href="mailto:davydsfp@gmail.com">davydsfp@gmail.com</a>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/davy-de-souza-547a6419b/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/DavyFelix" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.instagram.com/crvg_davyjd/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </section>
+    </main>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
+    <footer class="end"><span class="pr">C:\Users\davy&gt;</span> Davy de Souza, Rio de Janeiro, RJ <span class="caret" aria-hidden="true"></span></footer>
+  </div>
+</div>
 
-    const user = "DavyFelix";
-    const repoList = document.getElementById("repo-list");
+<script>
+const P = [
+  { n:"Catálogo de jogos", repo:"game_catalog", t:"Flutter e Dart",
+    d:"App para montar sua lista de jogos e acompanhar o progresso em cada um.",
+    s:`<h4>Meu catálogo</h4>
+       <div class="row"><div style="flex:1">Hollow Knight<div class="br"><i style="width:72%"></i></div></div><b>72%</b></div>
+       <div class="row"><div style="flex:1">Celeste<div class="br"><i style="width:100%"></i></div></div><b>100%</b></div>
+       <div class="row"><div style="flex:1">Elden Ring<div class="br"><i style="width:35%"></i></div></div><b>35%</b></div>
+       <div class="row"><div style="flex:1">Hades<div class="br"><i style="width:58%"></i></div></div><b>58%</b></div>
+       <div class="fab">Adicionar jogo</div>` },
+  { n:"RentControl", repo:"rentcontrol", t:"Flutter e Dart",
+    d:"App para o locatário controlar as contas mensais de aluguel de vários imóveis.",
+    s:`<h4>Contas de outubro</h4>
+       <div class="row"><div>Aluguel, apto Tijuca<small>Vence dia 5</small></div><span class="tag">Pago</span></div>
+       <div class="row"><div>Condomínio<small>Vence dia 10</small></div><span class="tag p">Pendente</span></div>
+       <div class="row"><div>Luz<small>Vence dia 15</small></div><span class="tag p">Pendente</span></div>
+       <div class="row"><div>Internet<small>Vence dia 20</small></div><span class="tag p">Pendente</span></div>
+       <div class="fab">Nova conta</div>` },
+  { n:"Digivice", repo:"DIGIVICE", t:"HTML, CSS e JavaScript",
+    d:"Um Digivice virtual inspirado em Digimon, com bestiário para consultar.",
+    s:`<h4>Bestiário</h4>
+       <div class="dv">SCAN<br>Agumon<br>Rookie</div>
+       <div class="row"><div style="flex:1">HP<div class="br"><i style="width:60%"></i></div></div></div>
+       <div class="row"><div style="flex:1">Ataque<div class="br"><i style="width:82%"></i></div></div></div>
+       <div class="row"><div style="flex:1">Defesa<div class="br"><i style="width:45%"></i></div></div></div>` },
+  { n:"Robô de impressão", repo:"-Robot-for-printing", t:"Python",
+    d:"Automatiza a fila de impressão em impressoras Brother, na rede local e na nuvem.",
+    s:`<h4>Fila de impressão</h4>
+       <div class="term"><span>$ python robo.py</span><span>Procurando impressoras...</span><span>Brother encontrada na rede</span><span><em>relatorio.pdf</em> enviado</span><span><em>etiquetas.pdf</em> enviado</span><span><em>contrato.pdf</em> na fila</span><span>Tudo certo.</span></div>` },
+  { n:"Cardápio digital", repo:"Cardapio", t:"TypeScript",
+    d:"Evolução do meu TCC: refiz o projeto para ganhar prática e entregar uma solução melhor.",
+    s:`<h4>Cardápio</h4>
+       <div class="row"><div>X-Burguer<small>Pão, carne e queijo</small></div><b>R$ 22</b></div>
+       <div class="row"><div>Batata média<small>Porção para dividir</small></div><b>R$ 14</b></div>
+       <div class="row"><div>Suco natural<small>Laranja ou limão</small></div><b>R$ 9</b></div>
+       <div class="fab">Ver pedido</div>` },
+  { n:"Tela de login", repo:"TELALOGIN", t:"HTML e CSS",
+    d:"Tela de login criada para estudar layout e estilização.",
+    s:`<h4>Bem-vindo de volta</h4>
+       <div class="field">E-mail</div><div class="field">Senha</div>
+       <div class="fab" style="margin-top:.4rem">Entrar</div>` }
+];
 
-    fetch(`https://api.github.com/users/${user}/repos?sort=updated`)
-      .then(res => res.json())
-      .then(repos => {
-        repos.forEach(repo => {
-          if (repo.fork) return;
+const list = document.getElementById("list");
+let screen = document.getElementById("screen");
 
-          const card = document.createElement("div");
-          card.setAttribute("data-aos", "fade-up");
-          card.className = "bg-gray-800 rounded-xl p-6 shadow-lg hover:scale-105 transition transform";
+list.innerHTML = P.map((p,i)=>`
+  <li class="proj" data-i="${i}">
+    <h3><button type="button" aria-pressed="false">${p.n}</button></h3>
+    <p>${p.d}</p>
+    <p class="stack">${p.t}</p>
+    <a href="https://github.com/DavyFelix/${p.repo}" target="_blank" rel="noopener">abrir no GitHub</a>
+  </li>`).join("");
 
-          card.innerHTML = `
-            <h3 class="text-2xl font-bold text-indigo-400">${repo.name}</h3>
-            <p class="text-gray-300 mt-2 min-h-[48px]">${repo.description ?? "Projeto sem descrição"}</p>
+function show(i){
+  const next = screen.cloneNode(false);
+  next.innerHTML = P[i].s;
+  screen.replaceWith(next);
+  screen = next;
+  list.querySelectorAll(".proj").forEach((li,k)=>{
+    li.classList.toggle("on", k===i);
+    li.querySelector("button").setAttribute("aria-pressed", k===i);
+  });
+}
+list.addEventListener("click", e=>{
+  const b = e.target.closest("button"); if(!b) return;
+  show(+b.closest(".proj").dataset.i);
+});
+show(0);
 
-            <div class="flex justify-between items-center mt-4 text-sm text-gray-400">
-              <span>🧠 ${repo.language ?? "N/A"}</span>
-              <span>⭐ ${repo.stargazers_count}</span>
-            </div>
-
-            <a href="${repo.html_url}" target="_blank" class="block mt-4 text-center bg-indigo-600 py-2 rounded-md hover:bg-indigo-700 transition">Ver no GitHub</a>
-          `;
-
-          repoList.appendChild(card);
-        });
-      })
-      .catch(err => {
-        repoList.innerHTML = '<p class="text-red-400">Erro ao carregar projetos.</p>';
-        console.error(err);
-      });
-  </script>
-
-  <script>
-    const canvas = document.getElementById('space');
-    const ctx = canvas.getContext('2d');
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+/* Digitação do terminal: roda uma vez ao abrir a página */
+(async function(){
+  const root = document.documentElement;
+  if(!root.classList.contains("js")) return;
+  const sleep = ms => new Promise(r=>setTimeout(r,ms));
+  const els = [...document.querySelectorAll("[data-type]")];
+  const caret = Object.assign(document.createElement("span"),{className:"caret"});
+  els.forEach(el=>{
+    el.dataset.full = el.textContent;
+    el.style.minHeight = el.offsetHeight + "px";
+    el.textContent = "";
+    (el.closest(".ln,.out")).style.visibility = "hidden";
+  });
+  await sleep(500);
+  for(const el of els){
+    el.closest(".ln,.out").style.visibility = "visible";
+    el.append(caret);
+    const speed = +el.dataset.type;
+    for(const ch of el.dataset.full){
+      caret.before(ch);
+      await sleep(speed);
     }
-    resize();
-    window.addEventListener('resize', resize);
-
-    const stars = Array.from({ length: 200 }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.5 + 0.5,
-      s: Math.random() * 0.5 + 0.2
-    }));
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#0b1020';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = 'white';
-      stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-        ctx.fill();
-        star.y += star.s;
-        if (star.y > canvas.height) star.y = 0;
-      });
-
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
+    await sleep(el.classList.contains("name") ? 350 : 220);
+  }
+  caret.remove();
+  root.classList.add("ready");
+})();
+</script>
 </body>
 </html>
