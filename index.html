@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Davy de Souza, desenvolvedor mobile</title>
-<meta name="description" content="Portfólio de Davy de Souza, desenvolvedor júnior com foco em apps mobile (Flutter e Kotlin), web e automações. Rio de Janeiro, RJ.">
+<meta name="description" content="Portfólio de Davy de Souza, desenvolvedor júnior com foco em apps mobile (Flutter, Kotlin e React Native), web e automações. Rio de Janeiro, RJ.">
 <meta name="theme-color" content="#07040D">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='16' fill='%2307040D'/%3E%3Ctext x='14' y='68' font-size='54' font-family='monospace' font-weight='700' fill='%239D6BFF'%3E%3E_%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,6 +67,8 @@ h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;letter-s
 .term em{color:#fff;font-style:normal;font-weight:800}
 .dv{margin:.3rem auto;width:140px;aspect-ratio:1;border-radius:50%;border:8px solid #7C3AED;background:#120A24 linear-gradient(#2A1B4D 1px,transparent 1px),linear-gradient(90deg,#2A1B4D 1px,transparent 1px);background-size:14px 14px;display:grid;place-items:center;color:var(--p2);font-weight:800;text-align:center;font-size:.7rem;box-shadow:inset 0 0 22px #000}
 .field{border:1.5px solid #DCCEFF;border-radius:10px;padding:.65rem .8rem;color:#8A7BAE}
+.screen.shot{padding:0;background:#000}
+.screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
 .list{list-style:none;padding:0}
 .proj{padding:1.3rem 0 1.3rem 1.6rem;border-bottom:1px dashed var(--ln);position:relative}
 .proj::before{content:">";position:absolute;left:0;top:1.3rem;color:transparent;font-weight:800;font-size:1.3rem;line-height:1.2}
@@ -81,7 +83,7 @@ h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;letter-s
 .proj a{display:inline-block;margin-top:.6rem;color:var(--p2);text-underline-offset:5px}
 
 /* Skills */
-.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,4vw,3rem);margin-top:2.5rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(1.5rem,4vw,3rem);margin-top:2.5rem}
 .skills h3{color:var(--p);font-size:1.15rem;margin-bottom:.6rem;font-weight:800}
 .skills ul{padding:0;list-style:none}
 .skills li{padding:.45rem 0;border-top:1px dashed var(--ln)}
@@ -98,7 +100,6 @@ h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;letter-s
 @media (max-width:860px){
   .work{grid-template-columns:1fr}
   .phone{position:relative;top:0;margin:0 auto 1rem}
-  .skills{grid-template-columns:1fr}
   .tb nav{gap:.8rem}.ctl{display:none}
 }
 @media (max-width:480px){.tb b{display:none}.tb{justify-content:center}}
@@ -120,7 +121,7 @@ h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;letter-s
       <div class="ln"><span class="pr">C:\Users\davy&gt;</span> <span data-type="70">whoami</span></div>
       <div class="out"><h1 class="name" data-type="45">Davy de Souza</h1></div>
       <div class="ln"><span class="pr">C:\Users\davy&gt;</span> <span data-type="70">type sobre.txt</span></div>
-      <div class="out"><p class="lead" data-type="12">Desenvolvedor júnior de Rio de Janeiro. Faço apps mobile com Flutter e Kotlin, e automações em Python que tiram trabalho repetitivo do caminho.</p></div>
+      <div class="out"><p class="lead" data-type="12">Desenvolvedor júnior de Rio de Janeiro. Faço apps mobile com Flutter, Kotlin e React Native, e automações em Python que tiram trabalho repetitivo do caminho.</p></div>
       <div class="ln"><span class="pr">C:\Users\davy&gt;</span> <span data-type="70">status</span></div>
       <div class="out"><p class="ok" data-type="25">Aberto a oportunidades</p></div>
       <div class="cta">
@@ -132,10 +133,10 @@ h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;letter-s
     <main>
     <section class="sec" id="projetos">
       <div class="ln"><span class="pr">C:\Users\davy\projetos&gt;</span> dir</div>
-      <h2>Projetos que você pode abrir e testar</h2>
-      <p class="sub">Escolha um projeto na lista e a tela do celular muda. Cada um tem o código aberto no GitHub.</p>
+      <h2>Apps mobile que eu construí</h2>
+      <p class="sub">Escolha um projeto na lista e a tela do celular muda. O código de todos está aberto no GitHub.</p>
       <div class="work">
-        <div class="phone" aria-label="Prévia ilustrativa do projeto selecionado"><div class="screen" id="screen"></div></div>
+        <div class="phone" aria-label="Prévia do projeto selecionado"><div class="screen" id="screen"></div></div>
         <ul class="list" id="list"></ul>
       </div>
     </section>
@@ -145,9 +146,10 @@ h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;letter-s
       <h2>Com o que eu trabalho</h2>
       <p class="sub">Começo pelo mobile, mas já passei por front-end, back-end e banco de dados nos meus projetos.</p>
       <div class="skills">
-        <div><h3>Mobile</h3><ul><li>Flutter</li><li>Kotlin</li><li>Android</li></ul></div>
-        <div><h3>Front-end</h3><ul><li>JavaScript e TypeScript</li><li>React</li><li>HTML e CSS</li></ul></div>
-        <div><h3>Back-end e dados</h3><ul><li>C#</li><li>Python</li><li>SQL Server</li><li>Firebase</li></ul></div>
+        <div><h3>Mobile</h3><ul><li>Flutter</li><li>Kotlin e Android nativo</li><li>React Native e Expo</li></ul></div>
+        <div><h3>Linguagens e web</h3><ul><li>JavaScript e TypeScript</li><li>React</li><li>HTML e CSS</li></ul></div>
+        <div><h3>Back-end e dados</h3><ul><li>APIs REST e GraphQL</li><li>Firebase e Supabase</li><li>PostgreSQL e SQL Server</li><li>C# e Python</li></ul></div>
+        <div><h3>Ferramentas</h3><ul><li>Git e GitHub</li></ul></div>
       </div>
     </section>
 
@@ -157,9 +159,9 @@ h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;letter-s
       <p class="sub">Estou buscando minha próxima oportunidade para crescer em um time de desenvolvimento. A forma mais rápida de me achar é por e-mail.</p>
       <a class="mail" href="mailto:davydsfp@gmail.com">davydsfp@gmail.com</a>
       <div class="links">
+        <a href="curriculo.pdf" download>Baixar currículo</a>
         <a href="https://www.linkedin.com/in/davy-de-souza-547a6419b/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/DavyFelix" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.instagram.com/crvg_davyjd/" target="_blank" rel="noopener">Instagram</a>
       </div>
     </section>
     </main>
@@ -169,46 +171,53 @@ h2{font-weight:800;font-size:clamp(1.8rem,4.6vw,3.2rem);line-height:1.1;letter-s
 </div>
 
 <script>
+/* CONFIRMAR: o campo "repo" precisa ser igual ao nome real do repositório em github.com/DavyFelix.
+   Confirmados: rentcontrol e -Robot-for-printing. Os demais nomes são estimados.
+   PRINTS REAIS: salve a imagem em img/<slug>.png (ex.: img/lifepilot.png) e ela
+   substitui a tela ilustrada automaticamente. */
 const P = [
-  { n:"Catálogo de jogos", repo:"game_catalog", t:"Flutter e Dart",
-    d:"App para montar sua lista de jogos e acompanhar o progresso em cada um.",
-    s:`<h4>Meu catálogo</h4>
-       <div class="row"><div style="flex:1">Hollow Knight<div class="br"><i style="width:72%"></i></div></div><b>72%</b></div>
-       <div class="row"><div style="flex:1">Celeste<div class="br"><i style="width:100%"></i></div></div><b>100%</b></div>
-       <div class="row"><div style="flex:1">Elden Ring<div class="br"><i style="width:35%"></i></div></div><b>35%</b></div>
-       <div class="row"><div style="flex:1">Hades<div class="br"><i style="width:58%"></i></div></div><b>58%</b></div>
-       <div class="fab">Adicionar jogo</div>` },
-  { n:"RentControl", repo:"rentcontrol", t:"Flutter e Dart",
-    d:"App para o locatário controlar as contas mensais de aluguel de vários imóveis.",
+  { slug:"lifepilot", n:"LifePilot", repo:"LifePilot", t:"Flutter, Supabase e PostgreSQL",
+    d:"App em Flutter para organizar tarefas e hábitos, com os dados guardados no Supabase e no PostgreSQL.",
+    s:`<h4>Hoje</h4>
+       <div class="row"><div>Treino de 30 minutos<small>Hábito, 12 dias seguidos</small></div><span class="tag">Feito</span></div>
+       <div class="row"><div>Estudar Flutter<small>Hábito, 5 dias seguidos</small></div><span class="tag p">Falta</span></div>
+       <div class="row"><div>Pagar a conta de luz<small>Tarefa, vence hoje</small></div><span class="tag p">Falta</span></div>
+       <div class="row"><div>Beber 2 L de água<small>Hábito</small></div><b>70%</b></div>
+       <div class="fab">Nova tarefa</div>` },
+  { slug:"rentcontrol", n:"RentControl", repo:"rentcontrol", t:"Flutter, autenticação, banco de dados e geolocalização",
+    d:"App em Flutter para o locatário controlar as contas mensais de aluguel de vários imóveis, com login e localização.",
     s:`<h4>Contas de outubro</h4>
        <div class="row"><div>Aluguel, apto Tijuca<small>Vence dia 5</small></div><span class="tag">Pago</span></div>
        <div class="row"><div>Condomínio<small>Vence dia 10</small></div><span class="tag p">Pendente</span></div>
        <div class="row"><div>Luz<small>Vence dia 15</small></div><span class="tag p">Pendente</span></div>
-       <div class="row"><div>Internet<small>Vence dia 20</small></div><span class="tag p">Pendente</span></div>
+       <div class="row"><div>Apto Tijuca<small>A 1,2 km de você</small></div><span class="tag">Perto</span></div>
        <div class="fab">Nova conta</div>` },
-  { n:"Digivice", repo:"DIGIVICE", t:"HTML, CSS e JavaScript",
-    d:"Um Digivice virtual inspirado em Digimon, com bestiário para consultar.",
-    s:`<h4>Bestiário</h4>
-       <div class="dv">SCAN<br>Agumon<br>Rookie</div>
-       <div class="row"><div style="flex:1">HP<div class="br"><i style="width:60%"></i></div></div></div>
-       <div class="row"><div style="flex:1">Ataque<div class="br"><i style="width:82%"></i></div></div></div>
-       <div class="row"><div style="flex:1">Defesa<div class="br"><i style="width:45%"></i></div></div></div>` },
-  { n:"Robô de impressão", repo:"-Robot-for-printing", t:"Python",
+  { slug:"dinofoods", n:"DinoFoods", repo:"DinoFoods", t:"Kotlin e Android nativo",
+    d:"App Android nativo, escrito em Kotlin.",
+    s:`<h4>Restaurantes</h4>
+       <div class="row"><div>Dino Burger<small>25 a 35 min</small></div><b>4,8</b></div>
+       <div class="row"><div>Pizza do Rex<small>30 a 40 min</small></div><b>4,6</b></div>
+       <div class="row"><div>Sushi Jurássico<small>40 a 50 min</small></div><b>4,7</b></div>
+       <div class="fab">Ver pedido</div>` },
+  { slug:"animes", n:"Catálogo de Animes", repo:"anime_catalog", t:"Flutter, GraphQL e persistência local",
+    d:"App em Flutter que busca animes em uma API GraphQL e guarda sua lista no próprio aparelho.",
+    s:`<h4>Animes salvos</h4>
+       <div class="row"><div>Cowboy Bebop<small>26 episódios</small></div><span class="tag">Salvo</span></div>
+       <div class="row"><div>Death Note<small>37 episódios</small></div><span class="tag">Salvo</span></div>
+       <div class="row"><div>Haikyu!!<small>25 episódios</small></div><span class="tag">Salvo</span></div>
+       <div class="fab">Buscar anime</div>` },
+  { slug:"pokedex", n:"Pokedex Gluestack", repo:"Pokedex-Gluestack", t:"React Native, TypeScript, GraphQL e estado global",
+    d:"Pokédex em React Native com TypeScript, GraphQL e gerenciamento de estado, feita com Gluestack.",
+    s:`<h4>Pokédex</h4>
+       <div class="row"><div>#001 Bulbasaur</div><span class="tag p">Grama</span></div>
+       <div class="row"><div>#004 Charmander</div><span class="tag p">Fogo</span></div>
+       <div class="row"><div>#007 Squirtle</div><span class="tag p">Água</span></div>
+       <div class="row"><div>#025 Pikachu</div><span class="tag p">Elétrico</span></div>
+       <div class="fab">Buscar Pokémon</div>` },
+  { slug:"robo-impressao", n:"Robô de impressão", repo:"-Robot-for-printing", t:"Python, projeto complementar de automação",
     d:"Automatiza a fila de impressão em impressoras Brother, na rede local e na nuvem.",
     s:`<h4>Fila de impressão</h4>
-       <div class="term"><span>$ python robo.py</span><span>Procurando impressoras...</span><span>Brother encontrada na rede</span><span><em>relatorio.pdf</em> enviado</span><span><em>etiquetas.pdf</em> enviado</span><span><em>contrato.pdf</em> na fila</span><span>Tudo certo.</span></div>` },
-  { n:"Cardápio digital", repo:"Cardapio", t:"TypeScript",
-    d:"Evolução do meu TCC: refiz o projeto para ganhar prática e entregar uma solução melhor.",
-    s:`<h4>Cardápio</h4>
-       <div class="row"><div>X-Burguer<small>Pão, carne e queijo</small></div><b>R$ 22</b></div>
-       <div class="row"><div>Batata média<small>Porção para dividir</small></div><b>R$ 14</b></div>
-       <div class="row"><div>Suco natural<small>Laranja ou limão</small></div><b>R$ 9</b></div>
-       <div class="fab">Ver pedido</div>` },
-  { n:"Tela de login", repo:"TELALOGIN", t:"HTML e CSS",
-    d:"Tela de login criada para estudar layout e estilização.",
-    s:`<h4>Bem-vindo de volta</h4>
-       <div class="field">E-mail</div><div class="field">Senha</div>
-       <div class="fab" style="margin-top:.4rem">Entrar</div>` }
+       <div class="term"><span>$ python robo.py</span><span>Procurando impressoras...</span><span>Brother encontrada na rede</span><span><em>relatorio.pdf</em> enviado</span><span><em>etiquetas.pdf</em> enviado</span><span><em>contrato.pdf</em> na fila</span><span>Tudo certo.</span></div>` }
 ];
 
 const list = document.getElementById("list");
@@ -224,9 +233,14 @@ list.innerHTML = P.map((p,i)=>`
 
 function show(i){
   const next = screen.cloneNode(false);
+  next.className = "screen";
   next.innerHTML = P[i].s;
   screen.replaceWith(next);
   screen = next;
+  const img = new Image();
+  img.alt = "Captura de tela do app " + P[i].n;
+  img.onload = () => { if(screen !== next) return; next.classList.add("shot"); next.replaceChildren(img); };
+  img.src = "img/" + P[i].slug + ".png";
   list.querySelectorAll(".proj").forEach((li,k)=>{
     li.classList.toggle("on", k===i);
     li.querySelector("button").setAttribute("aria-pressed", k===i);
